@@ -45,9 +45,9 @@ module GnipStream
       @processor.process(chunk)
       @processor.complete_entries.each do |entry| 
         EM.defer {
-          puts "Processing #{entry}"
+          puts "Processing entry before block call ["
           @on_message.call(entry)
-          puts "Finished"
+          puts "] Finished"
         }
       end
     end
